@@ -1,0 +1,43 @@
+ ˛∫æ   7 Õ  LamNhan_Chain  java/lang/Object 
+blockchain Ljava/util/ArrayList; 	Signature Ljava/util/ArrayList<LBlock;>; 
+difficulty I <clinit> ()V Code  java/util/ArrayList
+     <init>	    	   	 
+ LineNumberTable LocalVariableTable
+   this LLamNhan_Chain; main ([Ljava/lang/String;)V  java/util/Scanner	 ! # " java/lang/System $ % in Ljava/io/InputStream;
+  '  ( (Ljava/io/InputStream;)V	 ! * + , out Ljava/io/PrintStream; . 0H√£y nh·∫≠p s·ªë l∆∞·ª£ng kh·ªëi c·ªßa chu·ªói: 
+ 0 2 1 java/io/PrintStream 3 4 println (Ljava/lang/String;)V
+  6 7 8 nextLine ()Ljava/lang/String;
+ : < ; java/lang/Integer = > parseInt (Ljava/lang/String;)I @ ,Kh·ªüi t·∫°o th√¥ng tin kh·ªëi ƒë·∫ßu ti√™n! B Block D 0
+ A F  G '(Ljava/lang/String;Ljava/lang/String;)V
+  I J K add (Ljava/lang/Object;)Z M Trying to Mine block 0... 
+  O P Q get (I)Ljava/lang/Object;
+ A S T U 	mineBlock (I)V W java/lang/StringBuilder Y 'Nh·∫≠p d·ªØ li·ªáu c·ªßa kh·ªëi th·ª©: 
+ V [  4
+ V ] ^ _ append (I)Ljava/lang/StringBuilder;
+ V a b 8 toString d Nh·∫≠p h·ªç v√† t√™n:  f Nh·∫≠p m√£ h·ª£p ƒë·ªìng: 
+ V 
+ V i ^ j -(Ljava/lang/String;)Ljava/lang/StringBuilder; l -
+  n o p size ()I	 A r s t hash Ljava/lang/String; v Trying to Mine block  x 
+Blockchain is Valid: 
+  z { | isChainValid ()Ljava/lang/Boolean;
+ V ~ ^  -(Ljava/lang/Object;)Ljava/lang/StringBuilder; Å com/google/gson/GsonBuilder
+ Ä 
+ Ä Ñ Ö Ü setPrettyPrinting ()Lcom/google/gson/GsonBuilder;
+ Ä à â ä create ()Lcom/google/gson/Gson;
+ å é ç com/google/gson/Gson è ê toJson &(Ljava/lang/Object;)Ljava/lang/String; í 
+The block chain:  î S·ªê KH·ªêI PH·∫¢I L·ªöN H∆†N 0
+ 0 ñ ó ò printf <(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream; args [Ljava/lang/String; 	BlockData Ljava/util/Scanner; i j data hoten maHD chuoi blockchainJson StackMapTable ¶ java/lang/String
+ • ®  © ([C)V
+ • ´ ¨ ≠ replace (CC)Ljava/lang/String;
+ A Ø ∞ 8 calculateHash
+ • ≤ ≥ K equals µ Current Hashes not equal
+ ∑ π ∏ java/lang/Boolean ∫ ª valueOf (Z)Ljava/lang/Boolean;	 A Ω æ t previousHash ¿ Previous Hashes not equal
+ • ¬ √ ƒ 	substring (II)Ljava/lang/String; ∆ This block hasn't been mined currentBlock LBlock; previousBlock 
+hashTarget 
+SourceFile LamNhan_Chain.java !      	         	 	 
+           3      ª Y∑ ≥ ≥ ±       
+     
+               /     *∑ ±                        	      Q    Nª Y≤  ∑ &L≤ )-∂ /+∂ 5∏ 9=û$>ß ‹ö >≤ )?∂ /+∂ 5:≤ ª AYC∑ E∂ HW≤ )L∂ /≤ ∂ N¿ A≤ ∂ Rß ö≤ )ª VYX∑ Z∂ \∂ `∂ /≤ )c∂ /+∂ 5:≤ )e∂ /+∂ 5:ª VY∑ g∂ hk∂ h∂ h∂ `:≤ ª AY≤ ≤ ∂ md∂ N¿ A¥ q∑ E∂ HW≤ )ª VYu∑ Z∂ \∂ `∂ /≤ ∂ N¿ A≤ ∂ RÑ°ˇ%≤ )ª VYw∑ Z∏ y∂ }∂ `∂ /ª ÄY∑ Ç∂ É∂ á≤ ∂ ãN≤ )ë∂ /≤ )-∂ /ß ≤ )ìΩ ∂ ïW±       v    	         $  (  0  6  H  P  `  c  y  Å  á  è  ï  ∞  ‘   Í ! ˙  $ %. &6 '= (@ +M .    \ 	  N ô ö   C õ ú  3 ù 
+  ! · û 
+  6 * ü t  á s † t  ï e ° t  ∞ J ¢ t .  £ t  §    ˛ $ >˚ ñ˙ B 	 { |    L     óª •Y≤ º∑ ß0∂ ™M>ß s≤ ∂ N¿ AK≤ d∂ N¿ AL*¥ q*∂ Æ∂ ±ö ≤ )¥∂ /∏ ∂∞+¥ q*¥ º∂ ±ö ≤ )ø∂ /∏ ∂∞*¥ q≤ ∂ ¡,∂ ±ö ≤ )≈∂ /∏ ∂∞Ñ≤ ∂ m°ˇâ∏ ∂∞       >    5  7  8 # 9 0 ; > < F = K @ Y A a B f E x F Ä G Ö 7 í J    *  # e « »   0 X … »   Ñ   t   } ù 
+  §   / ˇ     •  ˇ 2  A A •  ˇ     •    À    Ã
